@@ -1,4 +1,4 @@
-/*Programming: Min-Fang Chuang   Date: 2024/04/29
+/*Programming: Min-Fang Chuang, An-Yi Lee, Vivian  Date: 2024/04/29
  *Instruction: Chow-Sing Lin     Class: Program Design
  *
  *define a class "Complex" and operators: + , - , == , * , >> , <<

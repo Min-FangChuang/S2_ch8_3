@@ -51,7 +51,7 @@ int main() {
 	cout << "(" << Complex1 << ") - (" << Complex2 << ") = " << answer << endl;
 
 	//calculate the multiplication of two complex numbers and display the result by operator '<<'
-
+	answer = Complex1 * Complex2;
 	cout << "(" << Complex1 << ") * (" << Complex2 << ") = " << answer << endl;
 
 
@@ -66,7 +66,12 @@ Complex::Complex():real(0), imaginary(0) {}
 
 //operator '=='
 bool operator ==(const Complex& C1, const Complex& C2) {
-
+	if (C1.real == C2.real && C1.imaginary == C2.imaginary) {
+		return true;
+	}
+	else {
+		return false;
+	}
  }
 
 //operator '+'
@@ -86,7 +91,12 @@ const Complex operator -(const Complex& C1) {
 
 //operator '*'
 const Complex operator *(const Complex& C1, const Complex& C2) {
-
+	double ansreal = 0, ansimaginary = 0;
+	ansreal += C1.real * C2.real;
+	ansreal -= C1.imaginary * C2.imaginary;
+	ansimaginary += C1.real * C2.imaginary;
+	ansimaginary += C1.imaginary * C2.real;
+	return Complex(ansreal, ansimaginary);
  }
 
 //operator '<<' output a complex number

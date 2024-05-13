@@ -35,13 +35,24 @@ int main() {
 	//declaration objects
 	Complex Complex1, Complex2, answer;
 	//input two complex numbers by operator '>>'
+	cout << "Enter two complex numbers by formal 'a +/- bi':" << endl;
+    cout << "Complex 1:";
+    cin >> Complex1;
+    cout << "Complex 2:";
+    cin >> Complex2;
 
 
 	//calculate the addition of two complex numbers and display the result by operator '<<'
 
+	cout << "(" << Complex1 << ") + (" << Complex2 << ") = " <<  answer  << endl;
+
 	//calculate the subtraction of two complex numbers and display the result by operator '<<'
 
+	cout << "(" << Complex1 << ") - (" << Complex2 << ") = " << answer << endl;
+
 	//calculate the multiplication of two complex numbers and display the result by operator '<<'
+
+	cout << "(" << Complex1 << ") * (" << Complex2 << ") = " << answer << endl;
 
 
 	system("pause");
@@ -80,10 +91,33 @@ const Complex operator *(const Complex& C1, const Complex& C2) {
 
 //operator '<<' output a complex number
 ostream& operator <<(ostream& outputStream, Complex& C1) {
+    outputStream << C1.real;
+    if (C1.imaginary > 0) {
+        outputStream << " + ";
+        if (C1.imaginary == 1) {
+            outputStream << "i";
+        }
+        else {
+            outputStream << C1.imaginary << "i";
+        }
+    }
+    if (C1.imaginary < 0) {
+        outputStream << " - ";
+        if (C1.imaginary == -1) { outputStream << "i"; }
+        else { outputStream << abs(C1.imaginary) << "i"; }
+    }
 
+    return (outputStream);
  }
 
 //operator '>>' input a Complex number
 istream& operator >>(istream& inputStream, Complex& C1) {
-
+    char op;
+    inputStream >> C1.real >> op >> C1.imaginary;
+    if (getchar() != 'i') { cout << "Input formal 'a +/- bi'" << endl; }
+    if (op == '-') {
+        C1.imaginary = - C1.imaginary;
+    }
+    else if (op != '+') { cout << "Input formal 'a +/- bi'" << endl; }
+    return(inputStream);
  }

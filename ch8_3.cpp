@@ -43,11 +43,11 @@ int main() {
 
 
 	//calculate the addition of two complex numbers and display the result by operator '<<'
-
+	answer = Complex1 + Complex2;
 	cout << "(" << Complex1 << ") + (" << Complex2 << ") = " << answer << endl;
 
 	//calculate the subtraction of two complex numbers and display the result by operator '<<'
-
+	answer = Complex1 - Complex2;
 	cout << "(" << Complex1 << ") - (" << Complex2 << ") = " << answer << endl;
 
 	//calculate the multiplication of two complex numbers and display the result by operator '<<'
